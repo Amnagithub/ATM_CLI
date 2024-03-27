@@ -1,0 +1,22 @@
+{
+  "name": "atm_cli",
+  "version": "1.0.0",
+  "description": "\"futured login,pin,cash balance,withdrawl trasactions\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\""
+  },
+  "author": "\"amnakh\"",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.16"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}
