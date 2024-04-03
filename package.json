@@ -1,9 +1,11 @@
 {
-  "name": "atm_cli",
+  "name": "@amnakh/cli_atm_machine",
   "version": "1.0.0",
   "description": "\"futured login,pin,cash balance,withdrawl trasactions\"",
   "main": "index.js",
   "type": "module",
+  "bin" : "index.js",
+  "publishconfig" : {"access" : "public"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 
@@ -7,59 +8,68 @@ let myPin = 1234;
 let anwserPin = await inquirer.prompt([
   {
     name: "pin",
-    message: "Enter your pin",
+    message: "Enter Your Pin",
     type: "number",
   },
 ]);
-if (anwserPin.pin === myPin) {
-  console.log(chalk.green.bold,(`Welcome`));
 
-  let operationAns = await inquirer.prompt([
+if (anwserPin.pin === myPin) { // pin code verification
+  
+  console.log(chalk.bgGreenBright.bold(`"Welcome To ATM Services"`)); //action perform in tamplet litral
+
+  let operationAns = await inquirer.prompt([ //action perform for operation list
     {
       name: "operation",
-      message: "select one option",
+      message: "Select One Option",
       type: "list",
-      choices: ["withdraw", "check balance", "fastcash"],
+      choices: ["Withdraw", "CheckBalance", "FastCash"],
     },
   ]);
-  console.log(operationAns);
-
-  if (operationAns.operation === "withdraw") {
+  // action perform for withdraw amount
+  if (operationAns.operation === "Withdraw") {
     let amountAns = await inquirer.prompt([
       {
         name: "amount",
-        message: "enter your amount",
+        message: "Enter Your Amount",
         type: "number",
       },
     ]);
-    if (amountAns.amount <= balance) {
-      let remainingBal = (balance -= amountAns.amount);
-      console.log(`your remaining balance is :${balance}`);
+    if (amountAns.amount <= balance) { //action perform for not exceed the balance amount
+
+      let remainingBal = (balance -= amountAns.amount); // action perform for remaining balance
+      
+      console.log(chalk.bgCyan.bold`Your Remaining Balance is :${balance}$`);
     } else {
-      console.log("Insuficient Balance");
+      console.log(chalk.bgRedBright.bold(`"Insufficient Balance"`));
     }
   }
 
-  if (operationAns.operation === "check balance") {
-    console.log(`your current balance is :${balance}`);
+  if (operationAns.operation === "CheckBalance") {
+    //action perform for balance check
+    console.log(
+      chalk.bgBlueBright.bold(`Your Current Balance is :${balance} $`)
+    );
   }
 
-  if (operationAns.operation === "fastcash") {
-    let anscash = await inquirer.prompt([{
-      name : "cash",
-      type : "number",
-      message : "Enter Cash Amount"
+  if (operationAns.operation === "FastCash") {
+    //action perform for Fast Cash
+    let anscash = await inquirer.prompt([
+      {
+        name: "cash",
+        type: "number",
+        message: "Enter Cash Amount",
       },
-
-  ]);
-  if (anscash.cash <= balance) {
-    let remainingcash = balance -= anscash.cash;
-    console.log(`your current balance is :${balance}`);
-  }
-    else {
-      console.log("Insuficient Balance");
+    ]);
+    if (anscash.cash <= balance) {
+      //action perform for not exceed the balance amount
+      let remainingcash = (balance -= anscash.cash); // action perform for remaining balance
+      console.log(
+        chalk.bgBlueBright.bold(`Your Current Balance is :${balance}$`)
+      );
+    } else {
+      console.log(chalk.bgRedBright.bold(`"Insufficient Balance"`));
     }
   }
 } else {
-  console.log("Invalid Pin");
+  console.log(chalk.bgRedBright.bold(`"Invalid Pin"`));
 }
