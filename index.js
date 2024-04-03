@@ -10,11 +10,9 @@ let anwserPin = await inquirer.prompt([
         type: "number",
     },
 ]);
-if (anwserPin.pin === myPin) {
-    // pin code verification
+if (anwserPin.pin === myPin) { // pin code verification
     console.log(chalk.bgGreenBright.bold(`"Welcome To ATM Services"`)); //action perform in tamplet litral
     let operationAns = await inquirer.prompt([
-        //action perform for operation list
         {
             name: "operation",
             message: "Select One Option",
@@ -31,8 +29,7 @@ if (anwserPin.pin === myPin) {
                 type: "number",
             },
         ]);
-        if (amountAns.amount <= balance) {
-            //action perform for not exceed the balance amount
+        if (amountAns.amount <= balance) { //action perform for not exceed the balance amount
             let remainingBal = (balance -= amountAns.amount); // action perform for remaining balance
             console.log(chalk.bgCyan.bold `Your Remaining Balance is :${balance}$`);
         }
