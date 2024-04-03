@@ -2,7 +2,6 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 
 let balance = 10000;
-
 let myPin = 1234;
 
 let anwserPin = await inquirer.prompt([
