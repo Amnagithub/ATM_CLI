@@ -14,6 +14,12 @@ if (anwserPin.pin === myPin) { // pin code verification
     console.log(chalk.bgGreenBright.bold(`"Welcome To ATM Services"`)); //action perform in tamplet litral
     let operationAns = await inquirer.prompt([
         {
+            name: "Your Account",
+            message: "Select Your Account",
+            type: "list",
+            choices: ["Saving Account", "Current Account"],
+        },
+        {
             name: "operation",
             message: "Select One Option",
             type: "list",
@@ -46,8 +52,9 @@ if (anwserPin.pin === myPin) { // pin code verification
         let anscash = await inquirer.prompt([
             {
                 name: "cash",
-                type: "number",
-                message: "Enter Cash Amount",
+                type: "list",
+                message: "Select one option",
+                choices: ["500", "1000", "2000", "5000", "10000"],
             },
         ]);
         if (anscash.cash <= balance) {
